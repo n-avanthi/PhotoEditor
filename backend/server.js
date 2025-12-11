@@ -1,4 +1,4 @@
-// Nano Banana Backend Server using OpenAI gpt-image-1
+// Backend Server using OpenAI gpt-image-1
 // Run: node server.js
 
 const express = require("express");
@@ -62,7 +62,7 @@ async function saveBinaryFile(filePath, contentBuffer) {
 // Health check endpoint
 app.get("/", (req, res) => {
   res.json({
-    status: "Nano Banana API Server Running (OpenAI)",
+    status: "Server Running (OpenAI)",
     timestamp: new Date(),
     imageGeneration: USE_IMAGE_GENERATION ? "enabled" : "disabled (analysis only)",
     model: "gpt-image-1",
@@ -249,13 +249,10 @@ app.post("/edit", upload.single("image"), async (req, res) => {
 
 // Start server
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`🍌 Nano Banana API Server running on port ${PORT} (OpenAI)`);
+  console.log(`Server running on port ${PORT} (OpenAI)`);
   console.log(`Access from network: http://192.168.0.146:${PORT}`);
   console.log(
     `Mode: ${USE_IMAGE_GENERATION ? "Image Generation" : "Analysis Only"}`
   );
   console.log(`Model: gpt-image-1`);
-  console.log(
-    `\nTip: make sure NANO_BANANA_URL in your Expo app points to this server.`
-  );
 });
